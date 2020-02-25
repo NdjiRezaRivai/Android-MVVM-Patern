@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="dataModel"
+            type="com.example.androidmvvmpatern.viewModel.ViewModelData" />
+    </data>
+
+        <LinearLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.MainActivity"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/textToInput"
+            android:gravity="center"
+            android:onTextChanged='@{dataModel::onDataChanged}'
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:id="@+id/textToFilled"
+            android:text='@{dataModel.text["textToShow"]}'/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:onClick='@{()->dataModel.onClick("Reza")}'/>
+
+    </LinearLayout>
+
+</layout>
+
+
